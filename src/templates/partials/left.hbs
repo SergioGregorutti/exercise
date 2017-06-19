@@ -1,0 +1,37 @@
+<aside class="filters">
+    <h2 class="filters-title">Shop By</h2>
+
+    <div class="applied-filters">
+        <h3>Applied:</h3>
+
+        <ul>
+            {{#each site.activeFacets}}
+                <li>
+                    {{this.category}}: {{this.attribute}}
+                    <span class="delete">X</span>
+                </li>
+            {{/each}}
+        </ul>
+
+        <div class="clear-all">
+            <a href="#" class="clear-all">Clear All</a>
+        </div>
+    </div>
+
+    <div class="categories">
+        {{#each site.facets}}
+            <h3>{{this.category}}</h3>
+
+            <ul>
+                {{#each this.filters}}
+                    <li>
+                        <a href="{{this.url}}">
+                            <span class="name">{{this.name}}</span>
+                            <span class="results">({{this.results}})</span>
+                        </a>
+                    </li>
+                {{/each}}
+            </ul>
+        {{/each}}
+    </div>
+</aside>

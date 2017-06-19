@@ -1,0 +1,35 @@
+<!doctype html>
+<!--[if IE 8]><html lang="en" class="ie8"><![endif]-->
+<!--[if IE 9]><html lang="en" class="ie9"><![endif]-->
+<!--[if gt IE 9]><!--><html lang="en"><!--<![endif]-->
+<head>
+    {{> head }}
+</head>
+<body id="category-page">
+    <div class="page-wrap">
+        {{> header }}
+        <div class="main-content">
+            <div class="container">
+                <ol class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Category Name</a></li>
+                    <li class="active">{{site.category}}</li>
+                </ol>
+
+                <h1>{{site.category}}</h1>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        {{> left }}
+                    </div>
+                    <div class="col-md-9">
+                        {{> right }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{> footer }}
+    </div>
+    {{> scripts}}
+</body>
+</html>

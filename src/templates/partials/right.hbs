@@ -1,0 +1,65 @@
+<section>
+    <div class="top-pagination">
+        <div class="list-type">
+            <a href="#" class="grid"></a>
+            <a href="#" class="list"></a>
+        </div>
+        <div class="option">
+            <span class="name">Sort</span>
+            <div class="custom-select select-sort">
+                <select>
+                    <option>Position</option>
+                    <option>Relevance</option>
+                    <option>Date</option>
+                </select>
+            </div>
+        </div>
+        <div class="option">
+            <span class="name">Show</span>
+            <div class="custom-select select-show">
+                <select>
+                    <option>15</option>
+                    <option>30</option>
+                    <option>60</option>
+                </select>
+            </div>
+            <span class="info">1-15 of 150</info>
+        </div>
+        <div class="navigation">
+            <a href="#" class="prev"></a>
+            <span class="detail">1 of 10</span>
+            <a href="#" class="next"></a>
+        </div>
+    </div>
+
+    <div class="results row">
+        {{#each site.catalog}}
+            <div class="col-md-4">
+                <div class="item">
+                    <img src="{{this.img}}" class="img-responsive">
+                    {{#ifCond this.newProduct true}}
+                        <span class="new">New</span>
+                    {{/ifCond}}
+                    {{#ifCond this.onSale true}}
+                        <span class="sale">Sale</span>
+                    {{/ifCond}}
+                    <h3>{{this.name}}</h3>
+                    <span class="star-rating" data-rate="{{this.rating}}"></span>
+                    <div class="price">
+                        {{#ifCond this.onSale true}}
+                            <span class="before">${{this.price.regular}}</span>
+                            <span class="after">${{this.price.special}}</span>
+                        {{else}}
+                            <span>${{this.price.regular}}</span>
+                        {{/ifCond}}
+                    </div>
+                    <ul class="colors">
+                        {{#each this.colors}}
+                            <li style="background-color: {{this.code}};" title="{{this.name}}"></li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</section>
